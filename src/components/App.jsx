@@ -7,13 +7,18 @@ import Section from "./Section/Section";
 
 export class App extends Component{
   state = {
-    contacts: [],
+    contacts: [{id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
+    {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
+    {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
+    {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},],
     filter: ''
   }
 
- addContact = ({contact})=>{
-  const nameOfContact = this.state.contacts.map(el=>el.name);
-    if(!nameOfContact.includes(contact.name)){
+ addContact = ({contact})=>{ 
+  const contactNameLowerCase = contact.name.toLowerCase();
+  const nameOfContact = this.state.contacts.map(el=>el.name.toLowerCase());
+
+    if(!nameOfContact.includes(contactNameLowerCase)){
       return this.setState({contacts: [...this.state.contacts, contact]})}
     else {
       alert(`${contact.name} is already in contact`)

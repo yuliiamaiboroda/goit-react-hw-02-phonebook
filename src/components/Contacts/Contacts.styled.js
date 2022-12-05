@@ -4,15 +4,21 @@ export const Ul = styled.ul`
 margin: 0 ;
 padding: 0;
 list-style: none;
+display: flex;
+flex-direction: column;
+gap: 15px;
 `
 export const Li = styled.li`
+padding: 7px;
 display: flex;
-gap: 6px;
-margin-bottom: 5px;
+gap: 10px;
+width: fit-content;
 color: #8d5524;
 font-family: 'Abel', sans-serif;
 font-size: 18px;
 align-items: center;
+border: 2px #8d5524  solid;
+border-radius: 5px;
 
 `
 export const Span = styled.span`

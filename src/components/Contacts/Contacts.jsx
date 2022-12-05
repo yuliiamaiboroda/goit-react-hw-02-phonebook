@@ -1,6 +1,7 @@
 import { Component } from "react";
 import {Ul, Li, Span, Button} from "./Contacts.styled"
 import PropTypes from 'prop-types';
+import { FaAddressCard } from "react-icons/fa";
 
 class Contacts extends Component {
 
@@ -14,7 +15,9 @@ handleDelete = e =>{
         return(
             <Ul>
                 {contactList.map(el=>(
-                    <Li key={el.id}>{el.name}: <Span>{el.number}</Span>
+                    <Li key={el.id}>
+                        <FaAddressCard/>
+                        {el.name}: <Span>{el.number}</Span>
                     <Button type="button" id={el.id} onClick={this.handleDelete}>Delete</Button></Li>
                 ))}
             </Ul>
