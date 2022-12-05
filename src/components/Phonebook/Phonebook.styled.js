@@ -13,7 +13,7 @@ export const Input = styled.input`
 width: 200px;
 border: 2px #e0ac69 solid;
 border-radius: 3px;
-font-family: 'Amatic SC', cursive;
+font-family: 'Abel', sans-serif;
 font-size: 18px;
 `
 
@@ -22,7 +22,7 @@ margin-top: 5px ;
 background-color: #c68642;
 color: #ffdbac;
 cursor: pointer;
-font-family: 'Amatic SC', cursive;
+font-family: 'Abel', sans-serif;
 padding: 7px 5px;
 border: 2px transparent solid;
 border-radius: 5px;

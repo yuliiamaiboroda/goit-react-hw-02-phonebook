@@ -14,6 +14,6 @@ export const Input = styled.input`
 width: 200px;
 border: 2px #e0ac69 solid;
 border-radius: 3px;
-font-family: 'Amatic SC', cursive;
+font-family: 'Abel', sans-serif;
 font-size: 18px;
 `
