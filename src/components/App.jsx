@@ -4,6 +4,7 @@ import Contacts from "./Contacts/Contacts";
 import Filter from "./Filter/Filter";
 import Notification from "./Notification/Notification";
 import Section from "./Section/Section";
+import { nanoid } from 'nanoid'
 
 export class App extends Component{
   state = {
@@ -14,15 +15,18 @@ export class App extends Component{
     filter: ''
   }
 
- addContact = ({contact})=>{ 
-  const contactNameLowerCase = contact.name.toLowerCase();
+ addContact = contact=>{ 
+  const newContact = {
+    ...contact,
+    id: nanoid()
+  };
+  const contactNameLowerCase = newContact.name.toLowerCase();
   const nameOfContact = this.state.contacts.map(el=>el.name.toLowerCase());
-
-    if(!nameOfContact.includes(contactNameLowerCase)){
-      return this.setState({contacts: [...this.state.contacts, contact]})}
-    else {
-      alert(`${contact.name} is already in contact`)
-  }
+  const isInArr= nameOfContact.some(el=>el.includes(contactNameLowerCase))
+    if(isInArr){
+      alert(`${newContact.name} is already in contact`)
+      return }
+   this.setState({contacts: [...this.state.contacts, newContact ]})
 }
  filterContacts = (array)=>{
   const newArray = array.filter(el=>el.name.toLowerCase().includes(this.state.filter));
