@@ -21,12 +21,11 @@ export class App extends Component{
     id: nanoid()
   };
   const contactNameLowerCase = newContact.name.toLowerCase();
-  const nameOfContact = this.state.contacts.map(el=>el.name.toLowerCase());
-  const isInArr= nameOfContact.some(el=>el.includes(contactNameLowerCase))
-    if(isInArr){
+  const isInContact = this.state.contacts.find (el=>el.name.toLowerCase().includes(contactNameLowerCase));
+    if(isInContact){
       alert(`${newContact.name} is already in contact`)
       return }
-   this.setState({contacts: [...this.state.contacts, newContact ]})
+   this.setState(prevState =>({contacts: [...prevState.contacts, newContact ]}))
 }
  filterContacts = (array)=>{
   const newArray = array.filter(el=>el.name.toLowerCase().includes(this.state.filter));
